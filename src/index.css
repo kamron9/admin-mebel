@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.main-container{
-    margin-left: 300px;
-    width: 100%;
+.main-container {
+  margin-left: 300px;
+  width: 100%;
+}
+.ant-layout-sider-trigger {
+  display: none;
 }

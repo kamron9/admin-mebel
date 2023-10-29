@@ -1,9 +1,8 @@
-.sider{
-  @media screen  and (max-width: 600px){
-      position: fixed;
-      width: 200px;
-      z-index: 99;
-      top: 0;
-      left: 0;
-  }
+.sider {
+  position: fixed;
+  min-height: 100vh;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  
 }
