@@ -5,18 +5,17 @@ import { routes } from "./routes/routes"
 import "./index.css"
 import { QueryClient, QueryClientProvider } from "react-query"
 import CollapsedMenuProvider from "./context/Sidebar/CollapsedMenuContext"
-import EmployeesProvider from "./context/employees/Employees";
+import EmployeesProvider from "./context/employees/Employees"
+import { queryClient } from "./config/queryClinet"
 
-const queryClient = new QueryClient()
-
-const root = ReactDOM.createRoot(document.getElementById("root"))
+const root = ReactDOM.createRoot(document.querySelector("div"))
 
 root.render(
   <QueryClientProvider client={queryClient}>
-      <EmployeesProvider>
-        <CollapsedMenuProvider>
-          <RouterProvider router={routes} />
-        </CollapsedMenuProvider>
-      </EmployeesProvider>
+    <EmployeesProvider>
+      <CollapsedMenuProvider>
+        <RouterProvider router={routes} />
+      </CollapsedMenuProvider>
+    </EmployeesProvider>
   </QueryClientProvider>
 )

@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import EmployeesService from "../../service/statistic-service/employeesService"
 import { useQuery } from "react-query"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUsers } from "@fortawesome/free-solid-svg-icons"
 import EmployeesTable from "./employeesTable"
-
 const Employees = () => {
   const [employees, setEmployess] = useState([])
 
@@ -18,15 +17,13 @@ const Employees = () => {
 
   return (
     <div>
-      <div className={"flex items-center my-4"}>
+      <div>
         <FontAwesomeIcon icon={faUsers} />
-        <p className={"ml-1 text-lg font-thin"}>
+        <p>
           active employees:
-          <span className={"text-sm font-bold"}>{employees.length}</span>
+          <span>{employees.length}</span>
         </p>
       </div>
-      {isLoading && <h1>loading...</h1>}
-      {!employees.length && !isLoading && <h1>data not found</h1>}
       <EmployeesTable employeesData={employees} />
     </div>
   )

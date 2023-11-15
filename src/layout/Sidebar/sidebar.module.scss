@@ -1,8 +1,18 @@
-.sider {
+.sidebar {
   position: fixed;
   min-height: 100vh;
   z-index: 99;
   top: 0;
   left: 0;
-  
+  &_logo {
+    display: flex;
+    align-items: center;
+    margin: 16px 0;
+    &_text {
+      color: white;
+    }
+  }
+}
+.justify_center {
+  justify-content: center;
 }

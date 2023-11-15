@@ -1,23 +1,24 @@
-import {createContext, useContext, useState} from "react";
-
+import { createContext, useContext, useState } from "react"
 
 export const EmployeesContext = createContext(null)
-export const useEmployeesContext = ()=>useContext(EmployeesContext)
-const EmployeesProvider = ({children}) => {
-    const [openDrawer,setOpenDrawer] = useState(false)
-    const showDrawer = (employeeData) =>{
-        setOpenDrawer(true)
-        console.log(employeeData)
-    }
-    const closeDrawer = () =>{
-        setOpenDrawer(false)
-    }
-    return (
+export const useEmployeesContext = () => useContext(EmployeesContext)
+const EmployeesProvider = ({ children }) => {
+  const [openDrawer, setOpenDrawer] = useState(false)
+  const [employeeData, setEmployeeData] = useState({})
+  const showDrawer = (employeeData) => {
+    setOpenDrawer(true)
+    setEmployeeData(employeeData)
+  }
+  const closeDrawer = () => {
+    setOpenDrawer(false)
+  }
+  return (
+    <EmployeesContext.Provider
+      value={{ openDrawer, showDrawer, closeDrawer, employeeData }}
+    >
+      {children}
+    </EmployeesContext.Provider>
+  )
+}
 
-        <EmployeesContext.Provider value={{openDrawer,showDrawer,closeDrawer}}>
-            {children}
-        </EmployeesContext.Provider>
-    );
-};
-
-export default EmployeesProvider;
+export default EmployeesProvider
