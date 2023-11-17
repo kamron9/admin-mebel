@@ -169,6 +169,7 @@ const EmployeesTable = ({ employeesData }) => {
         }}
         columns={columns}
         dataSource={employeesData}
+        rowKey={"id"}
       />
       <EmployeesDrawer />
     </>

@@ -4,6 +4,7 @@ import { useQuery } from "react-query"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUsers } from "@fortawesome/free-solid-svg-icons"
 import EmployeesTable from "./employeesTable"
+import { employeesData } from "../../data/statistic/employees"
 const Employees = () => {
   const [employees, setEmployess] = useState([])
 
