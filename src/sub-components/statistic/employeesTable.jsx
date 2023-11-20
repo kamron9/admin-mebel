@@ -1,5 +1,5 @@
 import { SearchOutlined } from "@ant-design/icons"
-import { useRef, useState, memo } from "react"
+import { useRef, useState } from "react"
 import Highlighter from "react-highlight-words"
 import { Button, Input, Space, Table } from "antd"
 import EmployeesDrawer from "../../components/Drawer/EmployeesDrawer/EmployeesDrawer"

@@ -3,7 +3,6 @@ import { sidebarItem } from "./SidebarItems"
 import { Link, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import Logo from "../../assets/images/logo.png"
-import styles from "./sidebar.module.scss"
 import { CollapsedContext } from "../../context/Sidebar/CollapsedMenuContext"
 
 const { Sider } = Layout
@@ -25,12 +24,12 @@ const Sidebar = () => {
     >
       <Link
         to={"/"}
-        className={`${styles.sidebar_logo} ${
-          collapsed ? styles.justify_center : ""
+        className={`flex items-center my-4 ${
+          collapsed ? "justify-center" : ""
         }`}
       >
         <img src={Logo} width={60} alt={"logo"} />
-        {!collapsed && <h1 className={styles.sidebar_logo_text}>Sofiya</h1>}
+        {!collapsed && <h1 className={"text-white"}>Sofiya</h1>}
       </Link>
       <Menu
         theme="dark"

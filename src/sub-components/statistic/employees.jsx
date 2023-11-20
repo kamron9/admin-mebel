@@ -11,7 +11,7 @@ const Employees = () => {
 
   const { showDrawer } = useEmployeesContext()
 
-  const { isLoading } = useQuery({
+  useQuery({
     queryKey: ["employees"],
     queryFn: async () => await EmployeesService.getAllEmployees(),
     select: ({ data }) => data,
@@ -22,15 +22,8 @@ const Employees = () => {
   })
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: "20px",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+      <div className="flex justify-between items-center mb-5">
+        <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={faUsers} />
           <p>
             active employees:

@@ -1,4 +1,3 @@
-import styles from "../drawer.module.scss"
 import {
   Button,
   DatePicker,
@@ -112,15 +111,14 @@ const EmployeesForm = () => {
       >
         <TextArea rows={"5"} />
       </Form.Item>
-      <div className={styles.drawer_form_bottom}>
+      <div
+        className={"absolute bottom-5 left-0 flex justify-between w-full px-5"}
+      >
         <Form.Item>
           <Button type="primary" htmlType="submit">
             save
           </Button>
-          <Button
-            onClick={handleCloseDrawer}
-            className={styles.drawer_form_close_btn}
-          >
+          <Button onClick={handleCloseDrawer} className={"ml-3"}>
             cancel
           </Button>
         </Form.Item>
