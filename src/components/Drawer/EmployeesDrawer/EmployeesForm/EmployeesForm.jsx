@@ -1,5 +1,4 @@
 import styles from "../drawer.module.scss"
-
 import {
   Button,
   DatePicker,
@@ -10,25 +9,24 @@ import {
   Select,
 } from "antd"
 import TextArea from "antd/es/input/TextArea"
-import {
-  EmployeesContext,
-  useEmployeesContext,
-} from "../../../../context/employees/Employees"
+import { useEmployeesContext } from "../../../../context/employees/Employees"
 import { option } from "./roles"
-import { useContext } from "react"
+import EmployeesService from "../../../../service/statistic-service/employeesService"
 
-const App = () => {
-  const { closeDrawer } = useEmployeesContext()
-  const { employeeData } = useContext(EmployeesContext)
+const EmployeesForm = () => {
+  const { closeDrawer, employeeData } = useEmployeesContext()
+
   const onFinish = (values) => {
     console.log("Success:", values)
     message.success("message successfuly saved")
-    closeDrawer()
+    EmployeesService.create(values).then((result) => console.log(result))
   }
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo)
   }
-
+  const handleCloseDrawer = () => {
+    closeDrawer()
+  }
   return (
     <Form
       layout={"vertical"}
@@ -37,9 +35,9 @@ const App = () => {
       autoComplete="off"
     >
       <Form.Item
-        label="name"
-        name="name"
-        initialValue={employeeData.name}
+        label="fullName"
+        name="fullName"
+        initialValue={employeeData.fullName}
         rules={[
           {
             required: true,
@@ -52,7 +50,8 @@ const App = () => {
 
       <Form.Item
         label="birth day"
-        name="birdth-day"
+        name="birthday"
+        // initialValue={employeeData.birthDay}
         rules={[
           {
             type: "object",
@@ -95,6 +94,7 @@ const App = () => {
       <Form.Item
         label={"role"}
         name={"role"}
+        initialValue={employeeData.role}
         rules={[
           {
             required: true,
@@ -105,8 +105,12 @@ const App = () => {
         <Select placeholder={"select role"} options={option} />
       </Form.Item>
 
-      <Form.Item label="intro" name="intro" initialValue={employeeData.website}>
-        <TextArea />
+      <Form.Item
+        label="additional"
+        name="additional"
+        initialValue={employeeData.additional}
+      >
+        <TextArea rows={"5"} />
       </Form.Item>
       <div className={styles.drawer_form_bottom}>
         <Form.Item>
@@ -114,7 +118,7 @@ const App = () => {
             save
           </Button>
           <Button
-            onClick={closeDrawer}
+            onClick={handleCloseDrawer}
             className={styles.drawer_form_close_btn}
           >
             cancel
@@ -133,4 +137,4 @@ const App = () => {
     </Form>
   )
 }
-export default App
+export default EmployeesForm

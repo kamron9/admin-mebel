@@ -1,5 +1,5 @@
 import { SearchOutlined } from "@ant-design/icons"
-import React, { useRef, useState } from "react"
+import { useRef, useState, memo } from "react"
 import Highlighter from "react-highlight-words"
 import { Button, Input, Space, Table } from "antd"
 import EmployeesDrawer from "../../components/Drawer/EmployeesDrawer/EmployeesDrawer"
@@ -123,18 +123,18 @@ const EmployeesTable = ({ employeesData }) => {
   })
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
+      title: "fullName",
+      dataIndex: "fullName",
+      key: "fullName",
       width: "30%",
-      ...getColumnSearchProps("name"),
+      ...getColumnSearchProps("fullName"),
     },
     {
-      title: "ID",
-      dataIndex: "id",
-      key: "id",
+      title: "birthday",
+      dataIndex: "birthday",
+      key: "birthday",
       width: "20%",
-      ...getColumnSearchProps("id"),
+      ...getColumnSearchProps("birthDay"),
     },
     {
       title: "email",
@@ -144,13 +144,13 @@ const EmployeesTable = ({ employeesData }) => {
       ...getColumnSearchProps("email"),
     },
     {
-      title: "Phone",
+      title: "phone",
       dataIndex: "phone",
       key: "phone",
       ...getColumnSearchProps("phone"),
     },
     {
-      title: "Action",
+      title: "action",
       dataIndex: "action",
       key: "action",
       render: (_, data) => (
@@ -169,7 +169,7 @@ const EmployeesTable = ({ employeesData }) => {
         }}
         columns={columns}
         dataSource={employeesData}
-        rowKey={"id"}
+        rowKey={"_id"}
       />
       <EmployeesDrawer />
     </>

@@ -1,10 +1,9 @@
-import { Button, Drawer, Select, Space } from "antd"
-import { useEmployeesContext } from "../../../context/employees/Employees"
-import EmployeesForm from "./EmployeesForm/EmployeesForm"
-import styles from "./drawer.module.scss"
+import { Drawer } from "antd";
+import { useEmployeesContext } from "../../../context/employees/Employees";
+import EmployeesForm from "./EmployeesForm/EmployeesForm";
 
 const EmployeesDrawer = () => {
-  const { openDrawer, closeDrawer } = useEmployeesContext()
+  const { openDrawer, closeDrawer } = useEmployeesContext();
   return (
     <>
       <Drawer
@@ -22,6 +21,6 @@ const EmployeesDrawer = () => {
         <EmployeesForm />
       </Drawer>
     </>
-  )
-}
-export default EmployeesDrawer
+  );
+};
+export default EmployeesDrawer;
