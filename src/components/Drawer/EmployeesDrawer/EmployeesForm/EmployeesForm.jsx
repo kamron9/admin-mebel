@@ -6,28 +6,48 @@ import {
   message,
   Popconfirm,
   Select,
-} from "antd"
-import TextArea from "antd/es/input/TextArea"
-import { useEmployeesContext } from "../../../../context/employees/Employees"
-import { option } from "./roles"
-import EmployeesService from "../../../../service/statistic-service/employeesService"
+} from "antd";
+import TextArea from "antd/es/input/TextArea";
+import { useEmployeesContext } from "../../../../context/employees/Employees";
+import { option } from "./roles";
+import EmployeesService from "../../../../service/statistic-service/employeesService";
+import { useForm } from "antd/es/form/Form";
 
 const EmployeesForm = () => {
-  const { closeDrawer, employeeData } = useEmployeesContext()
+  const { closeDrawer, employeeData } = useEmployeesContext();
+  const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    console.log("Success:", values)
-    message.success("message successfuly saved")
-    EmployeesService.create(values).then((result) => console.log(result))
-  }
+    console.log("Success:", values);
+    message.success("message successfuly saved");
+    EmployeesService.create(values).then((result) => console.log(result));
+    form.setFieldsValue({
+      fullName: "",
+      phone: "",
+      email: "",
+      role: "",
+      additional: "",
+      birthday: "",
+    });
+  };
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo)
-  }
+    console.log("Failed:", errorInfo);
+  };
   const handleCloseDrawer = () => {
-    closeDrawer()
-  }
+    closeDrawer();
+    form.resetFields();
+    // form.setFieldsValue({
+    //   fullName: "",
+    //   phone: "",
+    //   email: "",
+    //   role: "",
+    //   additional: "",
+    //   birthday: "",
+    // });
+  };
   return (
     <Form
+      form={form}
       layout={"vertical"}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
@@ -46,7 +66,9 @@ const EmployeesForm = () => {
       >
         <Input />
       </Form.Item>
-
+      <div>
+        <input type="text" defaultValue={employeeData.fullName} />
+      </div>
       <Form.Item
         label="birth day"
         name="birthday"
@@ -93,6 +115,7 @@ const EmployeesForm = () => {
       <Form.Item
         label={"role"}
         name={"role"}
+        valuePropName={"role"}
         initialValue={employeeData.role}
         rules={[
           {
@@ -133,6 +156,6 @@ const EmployeesForm = () => {
         </Popconfirm>
       </div>
     </Form>
-  )
-}
-export default EmployeesForm
+  );
+};
+export default EmployeesForm;

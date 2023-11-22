@@ -1,12 +1,7 @@
-import React from 'react';
-import StatisticTabs from "../components/StatisticTabs/StatisticTabs";
+import SubStatistic from "../sub-components/statistic/SubStatistic";
 
 const HomePage = () => {
-    return (
-        <div>
-            <StatisticTabs/>
-        </div>
-    );
+  return <SubStatistic />;
 };
 
 export default HomePage;
