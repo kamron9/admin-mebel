@@ -9,12 +9,14 @@ const SubStatistic = () => {
       {/*  charts */}
       <div className={"flex"}>
         <div className={"w-full"}>
-          <h3 className={"text-center mb-5 font-thin text-xl"}>online sales</h3>
+          <h3 className={"text-center mb-5 font-thin text-xl"}>
+            онлайн-продажи
+          </h3>
           <AreaChart />
         </div>
         <div className={"w-full"}>
           <h3 className={"text-center mb-5 font-thin text-xl"}>
-            in-store sales
+            продажи в магазине
           </h3>
           <BarChart />
         </div>
