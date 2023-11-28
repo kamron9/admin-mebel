@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router";
+import { RouterProvider } from "react-router-dom";
 import { routes } from "./routes/routes";
 import "./index.css";
 import { QueryClientProvider } from "react-query";
@@ -10,6 +10,7 @@ import {
   StyleProvider,
   legacyLogicalPropertiesTransformer,
 } from "@ant-design/cssinjs";
+import OrderModalProvider from "./context/OrderModalContext";
 
 const root = ReactDOM.createRoot(document.querySelector("div"));
 
@@ -19,9 +20,11 @@ root.render(
     transformers={legacyLogicalPropertiesTransformer}
   >
     <QueryClientProvider client={queryClient}>
-      <CollapsedMenuProvider>
-        <RouterProvider router={routes} />
-      </CollapsedMenuProvider>
+      <OrderModalProvider>
+        <CollapsedMenuProvider>
+          <RouterProvider router={routes} />
+        </CollapsedMenuProvider>
+      </OrderModalProvider>
     </QueryClientProvider>
   </StyleProvider>,
 );

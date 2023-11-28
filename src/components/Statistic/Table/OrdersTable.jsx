@@ -1,34 +1,21 @@
 import { Table } from "antd";
+import { orderData } from "../../../data/order";
+import { columns } from "./Column";
 
-const OrdersTable = () => {
-  const columns = [
-    {
-      title: "имя",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "номер телефона",
-      dataIndex: "phone",
-      key: "phone",
-    },
-    {
-      title: "состояние",
-      dataIndex: "state",
-      key: "state",
-    },
-    {
-      title: "действия",
-      dataIndex: "action",
-      key: "action",
-    },
-  ];
-
+const OrdersTable = ({ status }) => {
+  const ordersType = orderData.filter((data) => data.state === status);
   return (
     <Table
-      title={() => "новые заказы\n"}
+      pagination={{
+        current: 1,
+        pageSize: 10,
+      }}
+      scroll={{ x: 600, y: 600 }}
+      title={() => `${status} заказы\n`}
       className={"w-full"}
+      dataSource={ordersType}
       columns={columns}
+      rowKey={"id"}
     />
   );
 };

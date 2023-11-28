@@ -1,7 +1,7 @@
-import React from "react";
-import AreaChart from "../../charts/statistic/AreaChart";
-import StatisticTabs from "../../components/StatisticTabs/StatisticTabs";
-import BarChart from "../../charts/statistic/BarChart";
+import React from "react"
+import AreaChart from "../../charts/statistic/AreaChart"
+import StatisticTabs from "../../components/Statistic/Tabs/Tabs"
+import BarChart from "../../charts/statistic/BarChart"
 
 const SubStatistic = () => {
   return (
@@ -16,7 +16,7 @@ const SubStatistic = () => {
         </div>
         <div className={"w-full"}>
           <h3 className={"text-center mb-5 font-thin text-xl"}>
-            продажи в магазине
+            продажи в рассрочкy
           </h3>
           <BarChart />
         </div>
@@ -24,7 +24,7 @@ const SubStatistic = () => {
       {/*  tabs */}
       <StatisticTabs />
     </div>
-  );
-};
+  )
+}
 
-export default SubStatistic;
+export default SubStatistic

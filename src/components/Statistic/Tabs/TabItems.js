@@ -1,19 +1,19 @@
-import OrdersTable from "../Statistic/Table/OrdersTable";
+import OrdersTable from "../Table/OrdersTable";
 
 export const TabItems = [
   {
     key: "1",
     label: "новые заказы",
-    children: <OrdersTable />,
+    children: <OrdersTable status={"new"} />,
   },
   {
     key: "2",
     label: "получены заказы",
-    children: <h1>получены заказы </h1>,
+    children: <OrdersTable status={"accepted"} />,
   },
   {
     key: "3",
     label: "отмененные заказы",
-    children: <h1>отмененные заказы</h1>,
+    children: <OrdersTable status={"rejected"} />,
   },
 ];
