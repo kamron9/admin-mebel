@@ -13,6 +13,7 @@ import {
   faHospital,
 } from "@fortawesome/free-solid-svg-icons"
 import HomePage from "../pages/HomePage"
+import KitchenPage from "../pages/KitchenPage"
 
 export const routesItem = [
   {
@@ -26,7 +27,7 @@ export const routesItem = [
     id: v4(),
     title: "КУХНИ",
     path: "/kitchen",
-    element: <div>kitchen</div>,
+    element: <KitchenPage />,
     icon: <FontAwesomeIcon icon={faSink} />,
   },
   {

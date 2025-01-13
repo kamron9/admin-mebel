@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar/Sidebar"
 import Header from "./Header/Header"
 const { Content, Footer } = Layout
 
-const App = () => {
+const MainLayout = () => {
   return (
     <Layout
       style={{
@@ -35,4 +35,4 @@ const App = () => {
     </Layout>
   )
 }
-export default App
+export default MainLayout

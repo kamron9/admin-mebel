@@ -1,6 +1,7 @@
 import { Table } from "antd";
 import { orderData } from "../../../data/order";
 import { columns } from "./Column";
+import Column from "antd/es/table/Column";
 
 const OrdersTable = ({ status }) => {
   const ordersType = orderData.filter((data) => data.state === status);

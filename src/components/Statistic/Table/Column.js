@@ -1,5 +1,5 @@
-import { Button, Tag } from "antd";
-import OrderModal from "../../modal/OrderModal";
+import { Tag } from "antd";
+import OrderDrawer from "../../Drawer/OrderDrawer";
 
 export const columns = [
   {
@@ -33,5 +33,6 @@ export const columns = [
     title: "действия",
     dataIndex: "action",
     key: "action",
+    render: (_, data) => <OrderDrawer data={data} />,
   },
 ];
